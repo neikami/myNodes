@@ -1,0 +1,69 @@
+btoa()：字符串或二进制值转为Base64编码
+atob()：Base64编码转为原来的编码
+这两个方法不适合非ASCII码的字符，会报错。
+要将非ASCII码字符转为Base64编码，必须中间插入一个转码环节，再使用这两个方法。
+function b64Encode(str) {
+  return btoa(encodeURIComponent(str));
+}
+
+function b64Decode(str) {
+  return decodeURIComponent(atob(str));
+}
+
+b64Encode('你好') // "JUU0JUJEJUEwJUU1JUE1JUJE"
+b64Decode('JUU0JUJEJUEwJUU1JUE1JUJE') // "你好"
+
+//网页跳转到微信
+window.location.href='weixin://';
+
+//因为IE8既不支持HTML5也不支持CSS3 Media，所以我们需要加载两个JS文件，来保证我们的代码实现兼容效果：
+
+<!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+<![endif]-->
+
+*{
+    -webkit-tap-highlight-color: transparent;
+ }
+
+//手机网页meta
+<meta name="viewport" content="width=device-width,height=device-height, user-scalable=no,initial-scale=1, minimum-scale=1, maximum-scale=1,target-densitydpi=device-dpi ">  
+<meta name="format-detection" content="telphone=no, email=no"/>  
+<meta charset='utf-8'>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<meta name="renderer" content="webkit">
+<!-- 不让百度转码 -->
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+<meta name="HandheldFriendly" content="true">
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+//IE9兼容
+<!--[if lt IE 9]>  
+13.5px
+        <script src="http://cdn.bootcss.com/html5shiv/r29/html5.js"></script>  
+<![endif]-->  
+
+//seo
+<meta name="description" content="不超过150个字符" />页面描述  
+<meta name="keywords" content="html5, css3, 关键字"/>页面关键词  
+<meta name="author" content="neikami" />定义网页作者  
+<meta name="robots" content="index,follow" />定义网页搜索引擎索引方式，robotterms是一组使用英文逗号「,」分割的值，通常有如下几种取值：none，noindex，nofollow，all，index和follow。
+  
+
+///异步函数
+requestAnimationFrame(function(){
+
+})
+
+
+/*   safari   */
+@media all and (-webkit-min-device-pixel-ratio:0){
+/* select{ [;这里单独设置Safari的样式] } */
+}
